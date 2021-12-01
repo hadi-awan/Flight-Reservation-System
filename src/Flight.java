@@ -1,6 +1,7 @@
 /*
- *  Models an airline flight. In this simple system, all flights originate from Toronto.
- *  A simple flight has only economy seats.
+ * Models an airline flight
+ * In this simple system, all flights originate from Toronto
+ * A simple flight has only economy seats
  */
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.TreeMap;
 
 public class Flight {
     public enum Status {
-        // A special class that returns a status of a flight.
+        // A special class that returns a status of a flight
         DELAYED, ONTIME, ARRIVED, INFLIGHT
     };
 
@@ -32,10 +33,8 @@ public class Flight {
         this.departureTime = null;
         this.flightDuration = 0;
         this.aircraft = null;
-
         passengers = 0;
         status = Status.ONTIME;
-
         this.manifest = new ArrayList<>();
         this.seatMap = new TreeMap<>();
     }
@@ -50,7 +49,6 @@ public class Flight {
         this.aircraft = aircraft;
         passengers = 0;
         status = Status.ONTIME;
-
         this.manifest = new ArrayList<>();
         this.seatMap = new TreeMap<>();
     }
@@ -192,7 +190,7 @@ public class Flight {
         // Checks if the passenger already exists.
         for (Passenger passenger : manifest) {
             if (passenger.equals(p)) {
-                // If the passenger already exists, then we do not reserve a seat and throw a DuplicatePassengerException.
+                // If the passenger already exists, then we do not reserve a seat and throw a DuplicatePassengerException
                 throw new DuplicatePassengerException("Duplicate Passenger " + p.getName() + " " + p.getPassport());
             }
         }
@@ -203,7 +201,7 @@ public class Flight {
                 throw new SeatOccupiedException("Seat " + seat + " already occupied");
             }
             else {
-                // If the seat is not occupied, then add the passenger on board and increase the passenger count.
+                // If the seat is not occupied, then add the passenger on board and increase the passenger count
                 manifest.add(p);
                 seatMap.put(seat, p);
                 passengers++;

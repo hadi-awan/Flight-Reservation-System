@@ -1,9 +1,5 @@
-/*
- * This class models an aircraft type with a model name, a maximum number of economy seats, and a max number of first class seats
- */
 public final class Aircraft implements Comparable<Aircraft>
 {
-    // Fields
     int numEconomySeats;
     int numFirstClassSeats;
     String[][] seatLayout;
@@ -13,8 +9,6 @@ public final class Aircraft implements Comparable<Aircraft>
 
     public Aircraft(int seats, String model)
     {
-        // Constructor method which initializes the numEconomySeats, numFirstClassSeats,
-        // and model variables.
         this.numEconomySeats = seats;
         this.numFirstClassSeats = 0;
         this.model = model;
@@ -22,8 +16,6 @@ public final class Aircraft implements Comparable<Aircraft>
 
     public Aircraft(int economy, int firstClass, String model)
     {
-        // Constructor method which initializes the numEconomySeats, numFirstClassSeats,
-        // and model variables.
         this.numEconomySeats = economy;
         this.numFirstClassSeats = firstClass;
         this.model = model;
@@ -31,45 +23,38 @@ public final class Aircraft implements Comparable<Aircraft>
 
     public int getNumSeats()
     {
-        // Accessor method
         return numEconomySeats;
     }
 
     public int getTotalSeats()
     {
-        // Accessor method
         return numEconomySeats + numFirstClassSeats;
     }
 
 
     public int getNumFirstClassSeats()
     {
-        // Accessor method
         return numFirstClassSeats;
     }
 
     public String getModel()
     {
-        // Accessor method
         return model;
     }
 
     public void setModel(String model)
     {
-        // Mutator method
         this.model = model;
     }
 
     public void setNumEconomySeats(int numEconomySeats)
     {
-        // Mutator method
         this.numEconomySeats = numEconomySeats;
     }
 
 
     public int getRows()
     {
-        // Accessor method which returns the number of rows for the aircraft.
         if (getTotalSeats() <= rows)
         {
             this.rows = 2;
@@ -79,7 +64,7 @@ public final class Aircraft implements Comparable<Aircraft>
 
     public String[][] getSeatLayout()
     {
-        // Method which returns a 2D array for the seat-layout of the aircraft.
+        // Returns a 2D array for the seat-layout of the aircraft.
         int seats = getNumSeats();
         int columns = seats / getRows();
         this.seatLayout = new String[columns][getRows()];
@@ -89,7 +74,7 @@ public final class Aircraft implements Comparable<Aircraft>
 
     public void setSeatLayout(int capacity)
     {
-        // Method which labels the seats for the aircraft.
+        // Labels the seats for the aircraft.
         String[] labels = {"A", "B", "C", "D"};
         int columns = capacity / rows;
         for (int col = 1; col <= columns; col++)
@@ -108,7 +93,6 @@ public final class Aircraft implements Comparable<Aircraft>
 
     public void print()
     {
-        // Method which prints the model of the aircraft, the number of economy seats, and the number of first class seats.
         System.out.println("Model: " + model + "\t Economy Seats: " + numEconomySeats + "\t First Class Seats: " + numFirstClassSeats);
     }
 
@@ -120,13 +104,6 @@ public final class Aircraft implements Comparable<Aircraft>
     @Override
     public int compareTo(Aircraft aircraft)
     {
-        // Overriding the compareTo method of class Objects.
-        // If the number of economy seats in two aircraft objects are equal,
-        // then compare the number of first class seats.
-        // Otherwise, return 1 if it is greater or -1 if it is less.
-        // If the number of first class seats are equal, then return 0.
-        // Otherwise, return 1 if it is greater or -1 if it is less.
-
         if (this.numEconomySeats == aircraft.numEconomySeats)
         {
             if (this.numFirstClassSeats == aircraft.numFirstClassSeats)

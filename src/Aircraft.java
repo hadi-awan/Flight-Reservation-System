@@ -56,7 +56,7 @@ public final class Aircraft implements Comparable<Aircraft> {
     }
 
     public String[][] getSeatLayout() {
-        // Returns a 2D array for the seat-layout of the aircraft.
+        // Returns a 2D array for the seat-layout of the aircraft
         int seats = getNumSeats();
         int columns = seats / getRows();
         this.seatLayout = new String[columns][getRows()];
@@ -65,7 +65,7 @@ public final class Aircraft implements Comparable<Aircraft> {
     }
 
     public void setSeatLayout(int capacity) {
-        // Labels the seats for the aircraft.
+        // Labels the seats for the aircraft
         String[] labels = {"A", "B", "C", "D"};
         int columns = capacity / rows;
         for (int col = 1; col <= columns; col++) {
@@ -83,13 +83,11 @@ public final class Aircraft implements Comparable<Aircraft> {
         System.out.println("Model: " + model + "\t Economy Seats: " + numEconomySeats + "\t First Class Seats: " + numFirstClassSeats);
     }
 
-    /*
-     * Sorting by no of seats in the economy class. It returns  less than 0 i.e
-     * 0 < if this(keywork) is less than aircraft, > 0 if this is supposed to be
-     * greater  than object aircraft and 0 if they are equal.
-     */
     @Override
     public int compareTo(Aircraft aircraft) {
+       // Sorting by no of seats in the economy class. It returns  less than 0 i.e
+       // 0 < if this(keywork) is less than aircraft, > 0 if this is supposed to be
+       // greater  than object aircraft and 0 if they are equal
         if (this.numEconomySeats == aircraft.numEconomySeats) {
             if (this.numFirstClassSeats == aircraft.numFirstClassSeats) {
                 return 0;

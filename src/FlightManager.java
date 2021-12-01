@@ -42,14 +42,14 @@ public class FlightManager {
         airplanes.add(new Aircraft(12, "Bombardier 5000"));
         airplanes.add(new Aircraft(200, 12, "Boeing 747"));
 
-        // Populate flights from a file.
+        // Populate flights from a file
         readFlightFromFile("flights.txt");
     }
 
     private String generateFlightNumber(String airline) {
         // Generates and returns a flight number string from the airline name parameter
         // For example, if parameter string airline is "Air Canada" the flight number should be "ACxxx" where xxx is a random 3 digit number between 101 and 300
-        // Assume every airline name is always 2 words.
+        // Assume every airline name is always 2 words
         int flightNo = random.ints(1, 101, 300 + 1).findFirst().getAsInt();
         String initials = getInitials(airline);
         return initials + flightNo;
@@ -155,7 +155,7 @@ public class FlightManager {
     }
 
     private void readFlightFromFile(String filename) {
-        // Reads the information from the "flights.txt" file.
+        // Reads the information from the "flights.txt" file
         // It retrieves the information by placing it into an array
             // The first element in the array represents the airline
             // The second element in the array represents the destination
@@ -181,7 +181,7 @@ public class FlightManager {
                         String flightNum = generateFlightNumber(airline);
                         Aircraft aircraft = getBigEnoughAirplaneModel(capacity);
                         aircraft = new Aircraft(capacity, aircraft.getNumFirstClassSeats(), aircraft.getModel());
-                        // Get the city index from which we can get the flight time.
+                        // Get the city index from which we can get the flight time
                         int city_index = 0;
                         for (int i = 0; i < cities.length; i++) {
                             if (cities[i].equalsIgnoreCase(dest)) {
@@ -205,7 +205,7 @@ public class FlightManager {
 
     public Aircraft getBigEnoughAirplaneModel(int capacity)
     {
-        // Returns a model of an aircraft that is large enough according to @capacity.
+        // Returns a model of an aircraft that is large enough according to @capacity
         ArrayList<Integer> aircraft_capacities = new ArrayList<>();
         List<Integer> big_enough_aircrafts = new ArrayList<>();
         for (Aircraft airplane : airplanes) {
@@ -236,7 +236,7 @@ public class FlightManager {
     }
 
     public void printPassengerManifest(String flightNum) throws FlightNotFoundException {
-        // Prints the passenger manifest for this flight (i.e information about all passengers).
+        // Prints the passenger manifest for this flight (i.e information about all passengers)
         Flight flight = getFlightByNumber(flightNum);
         if (flight == null) {
             throw new FlightNotFoundException("Flight " + flightNum + " Not Found");

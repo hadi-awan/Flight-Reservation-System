@@ -1,3 +1,7 @@
+/*
+ * Models an aircraft type with a model name, a maximum number of economy seats, and a max number of first class seats
+ */
+
 public final class Aircraft implements Comparable<Aircraft> {
     int numEconomySeats;
     int numFirstClassSeats;

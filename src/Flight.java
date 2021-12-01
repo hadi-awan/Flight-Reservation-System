@@ -1,3 +1,8 @@
+/*
+ *  Models an airline flight. In this simple system, all flights originate from Toronto.
+ *  A simple flight has only economy seats.
+ */
+
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;

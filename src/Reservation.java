@@ -1,13 +1,10 @@
-import java.util.Objects;
-
 /*
  * A simple class to model an electronic airline flight reservation
- *
- * This class has been done for you
  */
-public class Reservation
-{
-    // Fields
+
+import java.util.Objects;
+
+public class Reservation {
     String flightNum;
     String flightInfo;
     boolean firstClass;
@@ -15,101 +12,72 @@ public class Reservation
     String passport;
     String seat;
 
-    public Reservation(String flightNum, String info, String name, String passport, String seat)
-    {
-        // Constructor Method which initializes the flightNum, flightInfo, firstClass,
-        // name, passport, and seat variables.
+    public Reservation(String flightNum, String info, String name, String passport, String seat) {
         this.flightNum = flightNum;
         this.flightInfo = info;
         this.firstClass = false;
-
         this.name = name;
         this.passport = passport;
         this.seat = seat;
     }
 
-    public boolean isFirstClass()
-    {
-        // Method which returns if a reservation is or is not first class
+    public boolean isFirstClass() {
         return firstClass;
     }
 
-    public void setFirstClass()
-    {
-        // Mutator method
+    public void setFirstClass() {
         this.firstClass = true;
     }
 
-    public String getFlightNum()
-    {
-        // Accessor method
+    public String getFlightNum() {
         return flightNum;
     }
 
-    public String getFlightInfo()
-    {
-        // Accessor method
+    public String getFlightInfo() {
         return flightInfo;
     }
 
-    public void setFlightInfo(String flightInfo)
-    {
-        // Mutator method
+    public void setFlightInfo(String flightInfo) {
         this.flightInfo = flightInfo;
     }
 
-    public String getName()
-    {
-        // Accessor method
+    public String getName() {
         return name;
     }
 
-    public void setName(String name)
-    {
-        // Mutator method
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getPassport()
-    {
-        // Accessor method
+    public String getPassport() {
         return passport;
     }
 
-    public void setPassport(String passport)
-    {
-        // Mutator method
+    public void setPassport(String passport) {
         this.passport = passport;
     }
 
-    public String getSeat()
-    {
-        // Accessor method
+    public String getSeat() {
         return seat;
     }
 
-    public void setSeat(String seat)
-    {
-        // Mutator method
+    public void setSeat(String seat) {
         this.seat = seat;
     }
 
-    public void print()
-    {
-        // Method which prints the flight-information, the name of the passenger, the passport-number, and seat-number.
+    public void print() {
         System.out.println(flightInfo + " " + name + " " + passport + " " + seat);
     }
 
     @Override
-    public int hashCode()
-    {
-        // If a class overrides equals, it must override hashCode.
-        // If two objects are equal, then their hashCode values must be equal as well.
-        // Therefore, we take a prime number (3) as a hash.
-        // We take another prime number (59), as a multiplier different than hash.
-        // We compute the hashcode for each variable and add them into final hash.
-        // We repeat this for all the variable that participated in the equals method.
-        // Finally, we return hash.
+    public int hashCode() {
+        // If a class overrides equals, it must override hashCode
+        // If two objects are equal, then their hashCode values must be equal as well
+        // Therefore, we take a prime number (3) as a hash
+        // We take another prime number (59), as a multiplier different than hash
+        // We compute the hashcode for each variable and add them into final hash
+        // We repeat this for all the variable that participated in the equals method
+        // Finally, we return hash
         int hash = 3;
         hash = 59 * hash + Objects.hashCode(this.flightNum);
         hash = 59 * hash + Objects.hashCode(this.name);
@@ -118,35 +86,26 @@ public class Reservation
     }
 
     @Override
-    public boolean equals(Object obj)
-    {
-        // Overriding the equals method of class Objects.
-        // Comparing two object of the class Reservation.
-        // If the two objects are equal, then return true.
-        // If the two objects are not equal, then return false.
-        if (this == obj)
-        {
+    public boolean equals(Object obj) {
+        // Overriding the equals method of class Objects
+        // Comparing two object of the class Reservation
+        if (this == obj) {
             return true;
         }
-        if (obj == null)
-        {
+        if (obj == null) {
             return false;
         }
-        if (getClass() != obj.getClass())
-        {
+        if (getClass() != obj.getClass()) {
             return false;
         }
         final Reservation other = (Reservation) obj;
-        if (!Objects.equals(this.flightNum, other.flightNum))
-        {
+        if (!Objects.equals(this.flightNum, other.flightNum)) {
             return false;
         }
-        if (!Objects.equals(this.name, other.name))
-        {
+        if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        if (!Objects.equals(this.passport, other.passport))
-        {
+        if (!Objects.equals(this.passport, other.passport)) {
             return false;
         }
         return true;
